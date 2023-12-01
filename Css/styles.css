@@ -1,0 +1,66 @@
+/* Selectores Generales */
+
+body{
+    background-color: #f5f5f5;
+    font-family: 'Lato', sans-serif;
+}
+header, footer{
+    text-align: center;
+    width: 300px;
+    margin: 30px auto 0px auto;
+}
+main{
+    width: 400px;
+    margin: 30px auto 0px auto;
+}
+form{
+    font-size: 18px;
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+}
+label{
+    display: block;
+    margin-bottom: 10px;
+}
+input{
+    display: inline;
+    font-family: 'Lato', sans-serif;
+    width: 236px;
+    border: 1px solid #ced4da;
+    padding: 10px;
+    border-radius: 0px 5px 5px 0px;
+    font-weight: 200;
+    font-size: 18px;
+}
+input[type="submit"]{
+    background-color: #222;
+    color: #fff;
+    font-weight: 400;
+    border-radius: 0px 5px 5px 0px;
+    width: 100%;
+}
+select{
+    font-family: 'Lato', sans-serif;
+    width: 100%;
+    border: 1ox solid #ced4da;
+    border-radius: 0px 5px 5px 0px;
+    font-weight: 300;
+    font-size: 18px;
+}
+
+/* Selectores Particulares */
+
+#nicka{
+    font-family: 'lato',sans-serif;
+    text-align: center;
+    font-weight: 400;
+    font-size: 18px;
+    float: left;
+    width:  20px;
+    background-color: #ced4da;
+    border: 1px solid #ced4da;
+    border-radius: 5px 0px 0px 5px;
+    padding: 10px;
+
+}

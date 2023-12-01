@@ -4,8 +4,45 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dots Game</title>
-</head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato&family=Poppins:wght@300&display=swap" rel="stylesheet"><link rel="stylesheet" href="Css/reset.css">
+    <link rel="stylesheet" href="Css/styles.css">
+    </head>
 <body>
+    <!-- BLOQUE HEADER -->
+    <header>
+        <img src="Media/nadaWebLogo.png" alt="Logo OneNada" height="160">
+
+    </header>
+    <!-- BLOQUE MAIN/FORMULARIO -->
+    <main>
+        <form action="#">
+            <div class="itemform">
+                <label for="name">Introduce tu nick</label>
+                <input type="text" name="nick" value="@" id="nicka" readonly>
+                <input type="text" name="nick"  id="nick">
+            </div>
+            <div class="itemform">
+                <label for="#">Tamaño del juego</label>
+                <select name="tamano" id="tamano">
+                    <option value="">--Elige un tamaño--</option>
+                    <option value="1">4x4</option>
+                    <option value="2">5x5</option>
+                    <option value="3">6x6</option>
+                </select>
+            </div>
+            <div class="itemform">
+                <input type="submit" value="JUGAR">
+            </div>
+        </form>
+
+    </main>
+    <!-- BLOQUE FOOTER -->
+    <footer>
+        <p>Proyecto FrontEnd con HTML, CSS y JS</p>
+
+    </footer>
     
 </body>
 </html>
