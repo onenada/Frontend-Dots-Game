@@ -6,22 +6,27 @@
     <title>Dots Game</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lato&family=Poppins:wght@300&display=swap" rel="stylesheet"><link rel="stylesheet" href="Css/reset.css">
+    <link href="https://fonts.googleapis.com/css2?family=Lato&family=Poppins:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="Css/reset.css">
     <link rel="stylesheet" href="Css/styles.css">
     </head>
 <body>
     <!-- BLOQUE HEADER -->
     <header>
-        <img src="Media/nadaWebLogo.png" alt="Logo OneNada" height="160">
+        <img src="Media/nadaWebLogo1.png" alt="Logo OneNada" height="100">
 
     </header>
     <!-- BLOQUE MAIN/FORMULARIO -->
     <main>
-        <form action="#">
+        <form action="#" id="formPrincipal">
             <div class="itemform">
-                <label for="name">Introduce tu nick</label>
+                <label for="name">Nick</label>
                 <input type="text" name="nick" value="@" id="nicka" readonly>
-                <input type="text" name="nick"  id="nick">
+                <input type="text" name="nick"  id="nick" value="Yoshida">
+            </div>
+            <div class="itemform">
+                <label for="name">Email</label>
+                <input type="email" name="email" id="email" value="tuemail@correo.com">
             </div>
             <div class="itemform">
                 <label for="#">Tamaño del juego</label>
@@ -43,6 +48,6 @@
         <p>Proyecto FrontEnd con HTML, CSS y JS</p>
 
     </footer>
-    
+    <script src="Js/app.js"></script>
 </body>
 </html>
