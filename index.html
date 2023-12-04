@@ -18,7 +18,10 @@
     </header>
     <!-- BLOQUE MAIN/FORMULARIO -->
     <main>
-        <form action="#" id="formPrincipal">
+        <div>
+            <p id="error"></p>
+        </div>
+        <form action="juego.html" id="formPrincipal">
             <div class="itemform">
                 <label for="name">Nick</label>
                 <input type="text" name="nick" value="@" id="nicka" readonly>
@@ -31,14 +34,14 @@
             <div class="itemform">
                 <label for="#">Tamaño del juego</label>
                 <select name="tamano" id="tamano">
-                    <option value="">--Elige un tamaño--</option>
+                    <option value="0">--Elige un tamaño--</option>
                     <option value="1">4x4</option>
                     <option value="2">5x5</option>
                     <option value="3">6x6</option>
                 </select>
             </div>
             <div class="itemform">
-                <input type="submit" value="JUGAR">
+                <input type="submit" value="JUGAR" id="jugar">
             </div>
         </form>
 
@@ -48,6 +51,7 @@
         <p>Proyecto FrontEnd con HTML, CSS y JS</p>
 
     </footer>
+    <!-- CODIGO JS -->
     <script src="Js/app.js"></script>
 </body>
 </html>
