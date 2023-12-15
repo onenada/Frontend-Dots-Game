@@ -1,38 +1,26 @@
-// ----------------------- CODIGO PRUEBA -----------------
-// //Capturar el valor del input nick//
-
-// const nickInput=document.getElementById("nick");
-// console.log(nickInput.nodeType);
-// nickInput.value="la puta que te pario";
-// console.log(nickInput.value);
-
-// const tamanoInput=document.getElementById("tamano");
-// console.log(tamanoInput.options[tamanoInput.selectedIndex].text);
-// const emailInput=document.getElementById("email");
-// console.dir(emailInput);
-// console.dir(tamanoInput);
-
-// function test() {
-//     console.log("evento click");
-// }
-
-// --------------------- FIN DE PRUEBAS -----------------
-
+// ----------------------- CODIGO PRUEBA ----------------
 // Js para capturar datos de usuario
 
 // ---------------Variables  y Objetos DOM---------------
+
 const nickInput=document.getElementById("nick");
 const tamanoInput=document.getElementById("tamano");
 const formInput=document.getElementById("formPrincipal");
 const error=document.getElementById("error");
+// --------------- Comprobando errores de juego.html ----
+if (sessionStorage.getItem('error')){
+    error.innerText = sessionStorage.getItem('error');
+    sessionStorage.removeItem('error');
+}
+
 // --------------- Funciones de evento ----------------
 
 function comprobarForm(event){
-    if(nickInput.value.length == 0 || nickInput.value == "Yoshida")
+    if(nickInput.value.match(/(?<!\S)[0-9]/))
     {
         console.log("No has colocado tu nick");
         nickInput.focus();
-        error.innerText = "El campo de nick no puedo estar vació"
+        error.innerText = "El campo de nick no puedo comenzar con un numero"
         event.preventDefault();
         return false
     }
@@ -44,6 +32,9 @@ function comprobarForm(event){
         event.preventDefault();
         return false
     }
+    //INFORMACION CORRECTA
+    userData(nickInput);
+    userHistory(nickInput);
     return true;
 }
 //----------------- Inicio de eventos-------------------
