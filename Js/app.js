@@ -7,6 +7,7 @@ const nickInput=document.getElementById("nick");
 const tamanoInput=document.getElementById("tamano");
 const formInput=document.getElementById("formPrincipal");
 const error=document.getElementById("error");
+const emailInput=document.getElementById("email");
 // --------------- Comprobando errores de juego.html ----
 if (sessionStorage.getItem('error')){
     error.innerText = sessionStorage.getItem('error');
@@ -33,9 +34,11 @@ function comprobarForm(event){
         return false
     }
     //INFORMACION CORRECTA
-    userData(nickInput);
+    userData(nickInput,emailInput,tamanoInput);
     userHistory(nickInput);
     return true;
 }
 //----------------- Inicio de eventos-------------------
 formInput.addEventListener('submit',comprobarForm);
+//------------------- Geolocalizacion-------------------
+geolocationData();
