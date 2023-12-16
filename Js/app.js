@@ -9,6 +9,9 @@ var tamanoInput;
 var formInput;
 var error;
 var emailInput;
+var avatarItems;
+var itemImg;
+var avatarContainer;
 
 // --------------- Funciones de evento ---------------- //
 
@@ -38,6 +41,14 @@ function comprobarForm(event){
     userHistory(nickInput);
     return true;
 }
+function moviendoImg(event){
+    itemImg=event.target;
+    console.log(itemImg.src);
+}
+function cambiarImg(event){
+    avatarContainer.src=itemImg.src;
+}
+
 // Carga de objetos del DOM, comprobaciones y eventos del formulario //
 function domCargado(){
     // Captura de todos los Elements necesarios//
@@ -46,6 +57,8 @@ function domCargado(){
     formInput=document.getElementById("formPrincipal");
     error=document.getElementById("error");
     emailInput=document.getElementById("email");
+    avatarItems=document.getElementsByClassName('avatarImgItem');
+    avatarContainer=document.getElementById('avatarImg');
 
     // Comprobando errores de juego.html //
     if (sessionStorage.getItem('error')!=null)
@@ -54,6 +67,15 @@ function domCargado(){
         sessionStorage.removeItem('error');
     }
     formInput.addEventListener('submit',comprobarForm);
+
+    // Eventos del Drag & Drop //
+    // recorremos el objeto DOM avatarItems que al ser una class posee multiples elementos dentro //
+    for(let item of avatarItems){
+        item.addEventListener('dragstart',moviendoImg)
+    }
+    avatarContainer.addEventListener('dragover',event=>{event.preventDefault()});
+    avatarContainer.addEventListener('drop',cambiarImg);
+
 }
 //----------------- Inicio de eventos-------------------
 document.addEventListener('DOMContentLoaded',domCargado);

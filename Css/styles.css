@@ -10,7 +10,7 @@ header, footer{
     margin: 30px auto 0px auto;
 }
 main{
-    width: 400px;
+    width: 300px;
     margin: 30px auto 0px auto;
 }
 form{
@@ -26,7 +26,7 @@ label{
 input{
     display: block;
     font-family: 'Lato', sans-serif;
-    width: 336px;
+    width: 236px;
     border: 1px solid #ced4da;
     padding: 10px;
     border-radius: 0px 5px 5px 0px;
@@ -47,7 +47,7 @@ input[type="email"]{
     font-weight: 200;
     font-size:18px;
     border-radius: 5px;
-    width: 378px;
+    width: 278px;
 }
 
 select{
@@ -62,6 +62,21 @@ select{
 }
 
 /* Selectores Particulares */
+
+/* Classes */
+.avatarItem{
+    background-color: #fff;
+    border: solid 1px grey;
+    border-radius: 5px;
+    width: 40px;
+    height: 40px;
+    padding-top: 5px;
+    padding-left: 5px;
+}
+
+
+
+/* IDs */
 #nicka{
     font-family: 'lato',sans-serif;
     text-align: center;
@@ -79,4 +94,26 @@ select{
     color: red;
     font-size: 15px;
     margin: 10px 0px 10px 0px;
+}
+#avatar{
+    float: left;
+}
+#avatarContainer{
+    display: flex;
+    background-color: #fff;
+    border: solid 1px grey;
+    border-radius:  5px;
+    width: 125px;
+    height: 125px;
+    justify-content: center;
+    align-items: center;
+    margin-right: 10px;
+}
+#avatargrid{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 5px;
+    margin-top: 30px;
 }
