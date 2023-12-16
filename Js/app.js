@@ -1,20 +1,20 @@
-// ----------------------- CODIGO PRUEBA ----------------
+//@author Paul L. Hernandez <back2bytes@gmail.com> //
+//@link https://github.com/onenada/Frontend-Dots-Game //
 // Js para capturar datos de usuario
 
-// ---------------Variables  y Objetos DOM---------------
+// --------------- Variables --------------- //
 
-const nickInput=document.getElementById("nick");
-const tamanoInput=document.getElementById("tamano");
-const formInput=document.getElementById("formPrincipal");
-const error=document.getElementById("error");
-const emailInput=document.getElementById("email");
-// --------------- Comprobando errores de juego.html ----
-if (sessionStorage.getItem('error')){
-    error.innerText = sessionStorage.getItem('error');
-    sessionStorage.removeItem('error');
-}
+var nickInput;
+var tamanoInput;
+var formInput;
+var error;
+var emailInput;
 
-// --------------- Funciones de evento ----------------
+// --------------- Funciones de evento ---------------- //
+
+// Comprobación de que el usuario coloco toda la información correctamente en el formulario //
+// y evasion de recarga del formulario una vez presionado el botón submit //
+// @param {HTMLElement} event <- Botón de submit del formulario del usuario //
 
 function comprobarForm(event){
     if(nickInput.value.match(/(?<!\S)[0-9]/))
@@ -33,12 +33,29 @@ function comprobarForm(event){
         event.preventDefault();
         return false
     }
-    //INFORMACION CORRECTA
+    //Información correcta //
     userData(nickInput,emailInput,tamanoInput);
     userHistory(nickInput);
     return true;
 }
+// Carga de objetos del DOM, comprobaciones y eventos del formulario //
+function domCargado(){
+    // Captura de todos los Elements necesarios//
+    nickInput=document.getElementById("nick");
+    tamanoInput=document.getElementById("tamano");
+    formInput=document.getElementById("formPrincipal");
+    error=document.getElementById("error");
+    emailInput=document.getElementById("email");
+
+    // Comprobando errores de juego.html //
+    if (sessionStorage.getItem('error')!=null)
+    {
+        error.innerText = sessionStorage.getItem('error');
+        sessionStorage.removeItem('error');
+    }
+    formInput.addEventListener('submit',comprobarForm);
+}
 //----------------- Inicio de eventos-------------------
-formInput.addEventListener('submit',comprobarForm);
+document.addEventListener('DOMContentLoaded',domCargado);
 //------------------- Geolocalizacion-------------------
 geolocationData();

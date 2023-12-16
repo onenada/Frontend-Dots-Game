@@ -1,13 +1,23 @@
+//@author Paul L. Hernandez <back2bytes@gmail.com> //
+//@link https://github.com/onenada/Frontend-Dots-Game //
+
 // JS Para los datos del usuario
 
 
-//Variables//
+//------------------- Variables ---------------------------- //
 var nick;
 var email;
 var tamano;
 var geolocation;
 
-//Funciones//
+//-------------------- Funciones --------------------------- //
+
+ //SessionStorage//
+
+// Almacenar datos del usuario en sessionStorage //
+// @param {HTMLElement} nick <- Nick del usuario //
+// @param {HTMLElement} email <- Email del usuario //
+// @param {HTMLElement} tamano <- Tamaño del panel escogido por el usuario //
 
 function userData(nick,email,tamano){
     sessionStorage.setItem('nick',nick.value);
@@ -16,11 +26,15 @@ function userData(nick,email,tamano){
     sessionStorage.setItem('geolocation',geolocationText);
 }
 
+// Obtener datos del usuario de la sessionStorage //
+
 function getUserData(){
     nick = sessionStorage.getItem('nick');
     email = sessionStorage.getItem('email');
     tamano = sessionStorage.getItem('tamano');
 }
+
+// Verificación de la correcta obtención de los datos del usuario // 
 
 function checkUserData(){
     if(nick==null){
@@ -30,13 +44,19 @@ function checkUserData(){
     return true
 }
 
+// Verificación y uso de la herramienta de geolocalizacion del navegador //
+
 function geolocationData(){
+    // Si el navegador usado no tiene geolocalizacion //
     if(!navigator.geolocation){
         geolocationText= "El Navegador no es compatible con API Geolocation";
-    }else{
+        }
+        // El navegador tiene la geolocalizacion y el usuario acepta dar su ubicación //
+        else{
         navigator.geolocation.getCurrentPosition(
             //éxito en callback//
-            (position)=>{geolocationText='Latitud:'+position.coords.latitude+'Longitud:'+position.coords.longitude},
+            (position)=>{
+                geolocationText='Latitud:'+position.coords.latitude+' Longitud:'+position.coords.longitude},
             //error//
             ()=>{geolocationText= "error en la geolocalizacion"}
         )
@@ -44,6 +64,11 @@ function geolocationData(){
 }
 
 //LocalStorage//
+
+// Almacenar datos del usuario en localStorage //
+// si no hay usuarios anteriores creara una lista de usuarios , de haber usuarios anteriores //
+// añadirá uno nuevo a la lista //
+// @param {sessionStorageItem} nick <- Nick del usuario en sessionStorage //
 
 function userHistory(nick){
     let userListStored=localStorage.getItem('userList');
@@ -55,8 +80,10 @@ function userHistory(nick){
         userList=JSON.parse(userListStored);
     }
     let regUser={
+        // Propiedades guardadas en cada usuario //
         usuario:nick.value,
-        fecha:Date.now()
+        fecha:Date.now(),
+        ubicación:geolocationText,
     }
     userList.push(regUser)
     localStorage.setItem("userList", JSON.stringify(userList));
