@@ -1,13 +1,61 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DotBreakers</title>
-</head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato&family=Poppins:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="Css/reset.css">
+    <link rel="stylesheet" href="Css/juegostyles.css">
+    <title>Dots Breaker</title>
+    </head>
 <body>
+    <!-- BLOQUE HEADER -->
+    <header>
+        <img src="Media/nadaWebLogo1.png" alt="Logo OneNada" height="100" id="logo">
+    </header>
+    <!-- BLOQUE MAIN -->
+    <main> 
+            <!-- BLOQUE JUEGO -->
+        <div id="gameContainer">
+            <div id="game">
+                <div class="containerItem"><div class="item"></div></div>
+                <div class="containerItem"><div class="item"></div></div>
+                <div class="containerItem"><div class="item"></div></div>
+                <div class="containerItem"><div class="item"></div></div>
+                <div class="containerItem"><div class="item"></div></div>
+                <div class="containerItem"><div class="item"></div></div>
+                <div class="containerItem"><div class="item"></div></div>
+                <div class="containerItem"><div class="item"></div></div>
+                <div class="containerItem"><div class="item"></div></div>
+            </div>
+            <div id="gameTittle">
+                <p>Dots Breaker</p>
+            </div>
+        </div>
+            <!-- BLOQUE PUNTUACIÓN -->
+        <div id="userContainer">
+            <form id="form_entrada" action="juego.html">
+                <div class="itemForm">
+                    <img src="./Media/avatar1.png" width="26">
+                    <input type="text" id="id">
+                </div>
+                <div class="itemForm">
+                    <label for="puntuacion">Puntuación</label>
+                    <input type="text" id="puntuacion" value="0" class="gameInput" readonly>
+                </div>
+                <div class="itemForm">
+                    <label for="time">Tiempo restante</label>
+                    <input type="text" id="time" value="30" class="gameInput" readonly>
+                </div>
+            </form>
+        </div>
+    </main>
+<footer>
     <!-- CODIGO JS -->
     <script src="Js/userData.js"></script>
     <script src="Js/juego.js"></script>
+</footer>
 </body>
 </html>
