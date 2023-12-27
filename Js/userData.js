@@ -9,6 +9,7 @@ var nick;
 var email;
 var tamano;
 var geolocation;
+var avatarImg;
 
 //-------------------- Funciones --------------------------- //
 
@@ -19,11 +20,12 @@ var geolocation;
 // @param {HTMLElement} email <- Email del usuario //
 // @param {HTMLElement} tamano <- Tamaño del panel escogido por el usuario //
 
-function userData(nick,email,tamano){
+function userData(nick,email,tamano,avatarContainer){
     sessionStorage.setItem('nick',nick.value);
     sessionStorage.setItem('email',email.value);
     sessionStorage.setItem('tamano',tamano.value);
     sessionStorage.setItem('geolocation',geolocationText);
+    sessionStorage.setItem('avatarImg',avatarContainer.src);
 }
 
 // Obtener datos del usuario de la sessionStorage //
@@ -32,6 +34,7 @@ function getUserData(){
     nick = sessionStorage.getItem('nick');
     email = sessionStorage.getItem('email');
     tamano = sessionStorage.getItem('tamano');
+    avatarImg = sessionStorage.getItem('avatarImg');
 }
 
 // Verificación de la correcta obtención de los datos del usuario // 

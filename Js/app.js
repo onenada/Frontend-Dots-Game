@@ -37,7 +37,7 @@ function comprobarForm(event){
         return false
     }
     //Información correcta //
-    userData(nickInput,emailInput,tamanoInput);
+    userData(nickInput,emailInput,tamanoInput,avatarContainer);
     userHistory(nickInput);
     return true;
 }
