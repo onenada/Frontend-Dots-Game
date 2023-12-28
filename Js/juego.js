@@ -8,6 +8,8 @@ var adyacentes=[];
 var tamanoPanel;
 var classMarcado;
 var idMarcados=[];
+var idInterval;
+
 // Funciones //
 
 //Devuelve un numero random entre 0 y max 
@@ -21,8 +23,11 @@ function getRandomInt(max){
 function rellenarFormularioUsuario(){
     document.getElementById("nick").value=nick;
     document.getElementById("avatarImg").src=avatarImg;
+    document.getElementById('time').value=selectedTime;
     tamanoPanel=parseInt(tamano);
 }
+
+
 //Pintado del panel de juego dependiendo de la seleccion de tamano en index.html
 function pintarPanelJuego(){
     document.getElementById('game').style.gridTemplateColumns="repeat("+tamano+", 1fr)";
@@ -55,6 +60,25 @@ function calcularAdyacentes(idMarcado){
     }
 }
 
+// Funcion que realiza la cuenta hacia atras del juego //
+function cuentaAtras(){
+    let tiempoRestante=parseInt(document.getElementById('time').value)-1;
+    document.getElementById('time').value=tiempoRestante;
+    if(tiempoRestante==0){
+        clearInterval(idInterval);
+        // Finalizar eventos //
+        const items=document.getElementsByClassName('item');
+        for (let item of items){
+            item.removeEventListener('mousedown', comenzarMarcar);
+            item.removeEventListener('mouseover', continuarMarcar);
+        }
+        document.removeEventListener('mouseup', finMarcar);
+        // Cambiar Z-index de los paneles de juego // 
+        document.getElementById('endGame').style.zIndex='2';
+        document.getElementById('game').style.zIndex='1';
+        document.getElementById('newGame').addEventListener('click',(e)=>location.reload());
+    }
+}
 
 // Añadir los eventos al juego //
 
@@ -65,6 +89,8 @@ function programarEventosJuego(){
         item.addEventListener('mouseover', continuarMarcar);
     }
     document.addEventListener('mouseup', finMarcar);
+    // Cuenta atrás //
+    idInterval=setInterval(cuentaAtras,1000)
 }
 
 
@@ -115,6 +141,12 @@ function continuarMarcar(event){
 function finMarcar(){
     inicioMarcado=false;
     adyacentes=[];
+    console.log(idMarcados);
+    // Añadiendo puntuacion //
+    const puntuacionInput=document.getElementById('puntuacion');
+    if(idMarcados.length>1){
+        puntuacionInput.value=parseInt(puntuacionInput.value)+idMarcados.length;
+    }
     // Trabajar con los puntos marcados
     for (let index = 0; index < idMarcados.length; index++) {
         // Captura de id del punto marcado //
@@ -123,10 +155,10 @@ function finMarcar(){
         // Cambio aleatorio de color //
         let color=['rojo','naranja','verde']
         let colorRandom=getRandomInt(3);
-        itemMarcado.classList.remove(classMarcado);
+        itemMarcado.classList.remove('rojo','naranja','verde');
         itemMarcado.classList.add(color[colorRandom]);
     }
-    itemMarcado=[];
+    idMarcados=[];
 }
 
 

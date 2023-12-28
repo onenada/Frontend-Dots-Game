@@ -105,6 +105,8 @@ header img#logo{
     margin-right: 10px;
 }
 #game{
+    position: absolute;
+    z-index: 2;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(3, 1fr);
@@ -117,7 +119,32 @@ header img#logo{
     border-radius: 5px 5px 0px 0px;
     gap: 10px;
 }
+#endGame{
+    z-index: 1;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #263238;
+    border: 1px solid #ced4da;
+    border-radius: 5px 5px 0px 0px;
+    width: 500px;
+    height: 417px;
+}
+
+#endGame button{
+    background-color: #fff;
+    border: 1px solid #ced4da;
+    padding: 10px 0px 10px 0px;
+    font-family: 'LAto',sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    border-radius: 5px;
+    width: 200px;
+}
+
 #gameTittle{
+    margin-top: 416px;
     width: 500px;
     background-color: black;
     border: 1px solid #ced4da;

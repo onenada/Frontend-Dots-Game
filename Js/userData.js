@@ -10,6 +10,9 @@ var email;
 var tamano;
 var geolocation;
 var avatarImg;
+var dificultades;
+var dificultadEle;
+var selectedTime;
 
 //-------------------- Funciones --------------------------- //
 
@@ -28,6 +31,13 @@ function userData(nick,email,tamano,avatarContainer){
     sessionStorage.setItem('avatarImg',avatarContainer.src);
 }
 
+// Funcion para seleccionar el tiempo de partida //
+function dificultad(){
+    var dificultades=document.getElementById('timeSelect');
+    var dificultadEle=dificultades.value;
+    sessionStorage.setItem('time',dificultadEle);
+}
+
 // Obtener datos del usuario de la sessionStorage //
 
 function getUserData(){
@@ -35,6 +45,7 @@ function getUserData(){
     email = sessionStorage.getItem('email');
     tamano = sessionStorage.getItem('tamano');
     avatarImg = sessionStorage.getItem('avatarImg');
+    selectedTime = sessionStorage.getItem('time')
 }
 
 // Verificación de la correcta obtención de los datos del usuario // 
