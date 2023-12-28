@@ -7,6 +7,7 @@ var inicioMarcado=false;
 var adyacentes=[];
 var tamanoPanel;
 var classMarcado;
+var idMarcados=[];
 // Funciones //
 
 //Devuelve un numero random entre 0 y max 
@@ -86,6 +87,8 @@ function comenzarMarcar(event){
         containerItem.classList.add('verde');
     }
     if(!inicioMarcado) inicioMarcado=true;
+    // Guardar puntos marcados //
+    idMarcados.push(parseInt(item.id))
     // Calculo de adyacentes //
     calcularAdyacentes(parseInt(item.id));
 }
@@ -102,6 +105,8 @@ function continuarMarcar(event){
             if(item.classList.contains('rojo')) containerItem.classList.add('rojo');
             else if(item.classList.contains('naranja')) containerItem.classList.add('naranja');
             else if(item.classList.contains('verde')) containerItem.classList.add('verde');
+            // Guardar puntos marcados //
+            idMarcados.push(parseInt(item.id))
             calcularAdyacentes(parseInt(item.id));
         }
     }
@@ -109,7 +114,20 @@ function continuarMarcar(event){
 // Finaliza el marcado de puntos 
 function finMarcar(){
     inicioMarcado=false;
+    adyacentes=[];
+    // Trabajar con los puntos marcados
+    for (let index = 0; index < idMarcados.length; index++) {
+        // Captura de id del punto marcado //
+        let itemMarcado=document.getElementById(idMarcados[index]);
+        itemMarcado.parentElement.classList.remove(classMarcado);
+        // Cambio aleatorio de color //
+        let color=['rojo','naranja','verde']
+        let colorRandom=getRandomInt(3);
+        itemMarcado.classList.remove(classMarcado);
+        itemMarcado.classList.add(color[colorRandom]);
     }
+    itemMarcado=[];
+}
 
 
 
