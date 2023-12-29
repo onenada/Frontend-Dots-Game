@@ -83,12 +83,19 @@ img{
 
 .rojo{
     background-color: #fd0c49;
+    transition: background-color 0.5s;
 }
 .verde{
     background-color: #7ac943;
+    transition: background-color 0.5s;
 }
 .naranja {
     background-color: orange;
+    transition: background-color 0.5s;
+}
+.endGameColor{
+    background-color: #263238;
+    transition: background-color 0.7s;
 }
 
 /* Selectores de IDs */
@@ -119,13 +126,15 @@ header img#logo{
     border-radius: 5px 5px 0px 0px;
     gap: 10px;
 }
+
+
+
 #endGame{
     z-index: 1;
     position: absolute;
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #263238;
     border: 1px solid #ced4da;
     border-radius: 5px 5px 0px 0px;
     width: 500px;
