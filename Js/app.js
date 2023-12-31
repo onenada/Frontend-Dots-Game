@@ -36,6 +36,14 @@ function comprobarForm(event){
         event.preventDefault();
         return false
     }
+    if(timeSelect.value=="0")
+    {
+        console.log("No seleccionado una dificultad de juego");
+        timeSelect.focus();
+        error.innerText = "Debes seleccionar una dificultad"
+        event.preventDefault();
+        return false
+    }
     //Información correcta //
     userData(nickInput,emailInput,tamanoInput,avatarContainer);
     userHistory(nickInput);

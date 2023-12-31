@@ -40,8 +40,9 @@
                 </select>
             </div>
             <div class="itemform">
-                <label for="timeSelect">Dificultad</label>
-                <select name="timeSelect" id="timeSelect" onchange="dificultad()" >
+                <label for="timeSelect">Dificultad *</label>
+                <select name="timeSelect" id="timeSelect" onchange="dificultad()" required>
+                    <option value="0">--Elige una dificultad--</option>
                     <option value="30">30 segundos</option>
                     <option value="20">20 segundos</option>
                     <option value="10">10 segundos</option>

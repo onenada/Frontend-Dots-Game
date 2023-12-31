@@ -14,6 +14,9 @@ var dificultades;
 var dificultadEle;
 var selectedTime;
 
+//-------------------- session storage --------------------- //
+
+
 //-------------------- Funciones --------------------------- //
 
  //SessionStorage//
@@ -102,3 +105,4 @@ function userHistory(nick){
     userList.push(regUser)
     localStorage.setItem("userList", JSON.stringify(userList));
 }
+
